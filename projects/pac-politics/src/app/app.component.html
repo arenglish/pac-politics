@@ -1,0 +1,15 @@
+<div class="nav-bar-container">
+    <mat-toolbar color="primary" class="mat-elevation-z8">
+        <mat-toolbar-row fxLayout="row">
+            <button mat-button [fxShow]="showMenu" (click)="toggleSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Test App</span>
+            <div class="flex-spacer"></div>
+            <pac-cycle-picker></pac-cycle-picker>
+
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>
+<router-outlet>
+</router-outlet>

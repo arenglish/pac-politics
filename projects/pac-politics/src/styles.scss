@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "mixins";
+
+.text-center {
+    text-align: center;
+}
+
+.flex-spacer {
+    flex-grow: 1;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+// html, body {
+//     font-size: 14px !important;
+// }
+
+// .font-playfair {
+//     font-family: 'Playfair Display', serif !important;
+// }

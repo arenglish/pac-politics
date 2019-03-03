@@ -1,0 +1,35 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$playfair-typography: mat-typography-config(
+  $font-family:   'Playfair Display, serif',
+  $headline:      mat-typography-level(24px, 32px, 400),
+  $title:         mat-typography-level(30px, 40px, 500),
+  $subheading-2:  mat-typography-level(16px, 28px, 400),
+  $subheading-1:  mat-typography-level(15px, 24px, 400),
+  $body-2:        mat-typography-level(14px, 24px, 500),
+  $body-1:        mat-typography-level(14px, 20px, 400),
+  $caption:       mat-typography-level(12px, 20px, 400),
+  $button:        mat-typography-level(14px, 14px, 500),
+  // Line-height must be unit-less fraction of the font-size.
+  $input:         mat-typography-level(16px, 1.125, 400)
+);
+
+$roboto-typography: mat-typography-config(
+    $font-family:   'Roboto, "Helvetica Neue", sans-serif',
+    $headline:      mat-typography-level(24px, 32px, 400),
+    $title:         mat-typography-level(30px, 40px, 500),
+    $subheading-2:  mat-typography-level(16px, 28px, 400),
+    $subheading-1:  mat-typography-level(15px, 24px, 400),
+    $body-2:        mat-typography-level(14px, 24px, 500),
+    $body-1:        mat-typography-level(14px, 20px, 400),
+    $caption:       mat-typography-level(12px, 20px, 400),
+    $button:        mat-typography-level(14px, 14px, 500),
+    // Line-height must be unit-less fraction of the font-size.
+    $input:         mat-typography-level(16px, 1.125, 400)
+  );
+
+@include angular-material-typography($playfair-typography);
+@include mat-expansion-panel-typography($roboto-typography);
