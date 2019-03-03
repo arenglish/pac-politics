@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "pac-politics"
+  },
+  "targets": {
+    "pac-politics": {
+      "hosting": {
+        "pac-politics": [
+          "pac-politics.firebaseapp.com"
+        ]
+      }
+    }
+  }
+}
