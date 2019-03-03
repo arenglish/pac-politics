@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "projects/pac-politics/dist",
+                        "outputPath": "dist/pac-politics",
                         "index": "projects/pac-politics/src/index.html",
                         "main": "projects/pac-politics/src/main.ts",
                         "polyfills": "projects/pac-politics/src/polyfills.ts",

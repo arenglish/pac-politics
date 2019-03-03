@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "pac-politics"
+    "default": "pac-politics",
+    "portfolio": "portfolio-dcde8"
   },
   "targets": {
     "pac-politics": {

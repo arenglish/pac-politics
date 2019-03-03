@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "cz": "./node_modules/.bin/git-cz",
-    "deploy-pac-politics": "cd projects/pac-politics && firebase deploy"
+    "deploy-pac-politics": "firebase deploy --public dist/pac-politics"
   },
   "config": {
     "commitizen": {
