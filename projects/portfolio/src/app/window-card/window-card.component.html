@@ -1,0 +1,22 @@
+<div fxFlexFill fxLayout="column" fxLayoutAlign="center" class="window-container"
+    [ngStyle]="{ 'background-image': 'url(' + image + ')' }">
+    <div fxLayout="row">
+        <ng-container *ngIf="cardPosition === 'right'">
+            <div fxFlex="1 1 calc(5em)"></div>
+        </ng-container>
+        <div fxFlex="1 1 calc(15em)" class="card-container" [routerLink]="[ link ]">
+            <mat-card fxFlexFill class="mat-elevation-z1" [ngClass]="cardPosition">
+                <mat-card-title>
+                    {{ title }}
+                </mat-card-title>
+                <mat-card-content>
+                    <ng-content></ng-content>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <ng-container *ngIf="cardPosition === 'left'">
+            <div fxFlex="1 1 calc(5em)"></div>
+        </ng-container>
+    </div>
+</div>

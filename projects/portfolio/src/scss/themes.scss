@@ -1,0 +1,12 @@
+// theme.scss
+@import '~@angular/material/theming';
+
+$portfolio-theme-primary: mat-palette($mat-blue-grey);
+$portfolio-theme-accent : mat-palette($mat-amber);
+$portfolio-theme-warn   : mat-palette($mat-red);
+
+$portfolio-theme: mat-light-theme(
+    $portfolio-theme-primary,
+    $portfolio-theme-accent,
+    $portfolio-theme-warn
+);

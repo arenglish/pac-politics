@@ -1,0 +1,27 @@
+@import '~@angular/material/theming';
+@import 'mixins';
+
+.window-container {
+    background-color: rgb(160, 160, 160);
+    background-size: cover
+}
+
+.card-container {
+    @include unselectable;
+    @include clickable;
+    &:focus {
+        outline: none;
+        border: 0;
+     }
+}
+mat-card {
+    &.left {
+        border-radius: 0px 8px 8px 0px !important;
+    }
+    &.right {
+        border-radius: 8px 0px 0px 8px !important;
+    }
+    &:hover {
+        @include mat-elevation(8);
+    }
+}

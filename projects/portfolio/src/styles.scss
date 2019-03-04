@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "mixins";
+@import "themes";
+@include angular-material-theme($portfolio-theme);
+
+mat-card {
+    border-radius: 8px !important;
+}
+
+.overflow-y {
+    overflow-y: auto;
+}
+
+.clickable {
+    cursor: pointer;
+}

@@ -1,0 +1,27 @@
+.nav-bar-container {
+    height: 64px;
+    position: relative;
+    z-index: 1;
+}
+
+mat-toolbar {
+    height: 100%
+}
+
+.app-content-container {
+    height: calc(100% - 64px);
+}
+
+sidenav-container {
+    position: absolute;
+    height: calc(100% - 64px);
+    left: 0;
+    right: 0;
+    background: #eee;
+    z-index: 0;
+}
+
+mat-sidenav {
+    width: 300px;
+    max-width: 70%;
+}

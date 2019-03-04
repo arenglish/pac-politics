@@ -1,0 +1,18 @@
+<div fxFlexFill fxLayout="column" class="overflow-y">
+    <portfolio-window-card fxFlex="0 0 100%" title="About Me" [cardPosition]="(sidenavOpen$ | async) ? 'left' : 'right'" image="/assets/images/austin.jpg">
+        this is the content
+    </portfolio-window-card>
+    <portfolio-window-card fxFlex="0 0 75%" title="CV" cardPosition="right" image="/assets/images/cv.jpg" link="cv">
+    </portfolio-window-card>
+    <portfolio-window-card fxFlex="0 0 75%" title="Projects" [cardPosition]="(sidenavOpen$ | async) ? 'left' : 'right'" image="/assets/images/projects.jpg" link="projects">
+        Academic projects
+    </portfolio-window-card>
+    <portfolio-window-card fxFlex="0 0 75%" title="Photography" cardPosition="right" image="/assets/images/photography.jpg" link="photography">
+    </portfolio-window-card>
+    <portfolio-window-card fxFlex="0 0 75%" title="Videos" [cardPosition]="(sidenavOpen$ | async) ? 'left' : 'right'" image="/assets/images/videos.jpg" link="videos">
+    </portfolio-window-card>
+    <portfolio-window-card fxFlex="0 0 75%" title="Art" cardPosition="right" image="/assets/images/cv.jpg">
+    </portfolio-window-card>
+    <portfolio-window-card fxFlex="0 0 75%" title="Tron Game" [cardPosition]="(sidenavOpen$ | async) ? 'left' : 'right'" image="/assets/images/tron-background.jpg">
+    </portfolio-window-card>
+</div>

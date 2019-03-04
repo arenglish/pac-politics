@@ -7,7 +7,7 @@
             "root": "projects/pac-politics/",
             "sourceRoot": "projects/pac-politics/src",
             "projectType": "application",
-            "prefix": "app",
+            "prefix": "pac",
             "schematics": {
                 "@schematics/angular:component": {
                     "style": "scss"
@@ -88,7 +88,7 @@
                         "tsConfig": "projects/pac-politics/tsconfig.spec.json",
                         "karmaConfig": "projects/pac-politics/karma.conf.js",
                         "styles": [
-                            "projects/pac-politics/src/styles.css"
+                            "projects/pac-politics/src/styles.scss"
                         ],
                         "scripts": [],
                         "assets": [
@@ -115,8 +115,12 @@
             "root": "projects/portfolio/",
             "sourceRoot": "projects/portfolio/src",
             "projectType": "application",
-            "prefix": "app",
-            "schematics": {},
+            "prefix": "portfolio",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
@@ -131,8 +135,13 @@
                             "projects/portfolio/src/assets"
                         ],
                         "styles": [
-                            "projects/portfolio/src/styles.css"
+                            "projects/portfolio/src/styles.scss"
                         ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": [
+                                "projects/portfolio/src/scss"
+                            ]
+                        },
                         "scripts": []
                     },
                     "configurations": {
@@ -187,7 +196,7 @@
                         "tsConfig": "projects/portfolio/tsconfig.spec.json",
                         "karmaConfig": "projects/portfolio/karma.conf.js",
                         "styles": [
-                            "projects/portfolio/src/styles.css"
+                            "projects/portfolio/src/styles.scss"
                         ],
                         "scripts": [],
                         "assets": [
