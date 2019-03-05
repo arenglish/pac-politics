@@ -10,8 +10,8 @@
     "e2e": "ng e2e",
     "cz": "./node_modules/.bin/git-cz",
     "compress": "node build/compress.js",
-    "deploy-pac-politics": "firebase deploy --public dist/pac-politics",
-    "deploy-portfolio": "firebase deploy --public dist/portfolio"
+    "dep-pac": "firebase use pac-politics && firebase deploy --public dist/pac-politics",
+    "deploy-port": "firebase use portfolio && firebase deploy --public dist/portfolio"
   },
   "config": {
     "commitizen": {

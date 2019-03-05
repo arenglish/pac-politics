@@ -1,12 +1,47 @@
 @import '~@angular/material/theming';
 @import 'mixins';
 
+$card-banner-width: 60%;
+
 .window-container {
     background-color: rgb(160, 160, 160);
     background-size: cover
 }
 
+
+@keyframes cardExpand {
+    from {
+        max-width: $card-banner-width;
+    }
+    to {
+        max-width: 100%;
+    }
+}
+
+@keyframes expandRowHeight {
+    from {
+        flex: 0 0 auto !important;
+    }
+    to {
+        flex: 1 1 auto !important;
+    }
+}
+
+.card-row {
+    transition: max-height 2s ease-out;
+    max-height: 30%;
+    flex: auto;
+    &.expand {
+        max-height: 100%;
+        // flex: 1 1 auto !important;
+    }
+}
+
 .card-container {
+    &.expand {
+        animation: cardExpand 2s forwards;
+    }
+    max-width: $card-banner-width;
     @include unselectable;
     @include clickable;
     &:focus {
@@ -14,6 +49,7 @@
         border: 0;
      }
 }
+
 mat-card {
     &.left {
         border-radius: 0px 8px 8px 0px !important;

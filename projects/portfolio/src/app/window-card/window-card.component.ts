@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ContentChild, TemplateRef } from '@angular/core';
 
 @Component({
     selector: 'portfolio-window-card',
@@ -10,9 +10,17 @@ export class WindowCardComponent implements OnInit {
     @Input() title: string;
     @Input() cardPosition: 'left' | 'right' = 'left';
     @Input() link: string = '';
+    @ContentChild(TemplateRef)
+    @Input() expandContent: TemplateRef<any> = null;
     
+    isBannerExpanded = false;
+
     constructor() { }
 
-    ngOnInit() {}
+    ngOnInit() { }
+
+    toggleBanner() {
+        this.isBannerExpanded = !this.isBannerExpanded;
+    }
 
 }

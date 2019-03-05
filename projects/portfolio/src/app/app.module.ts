@@ -33,7 +33,7 @@ import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown';
     MatCardModule,
     FlexLayoutModule,
     MatSidenavModule,
-    MarkdownModule
+    MarkdownModule.forRoot()
   ],
   providers: [
     MarkdownService,

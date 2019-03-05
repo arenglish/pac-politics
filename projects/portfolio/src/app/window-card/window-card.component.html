@@ -1,22 +1,27 @@
 <div fxFlexFill fxLayout="column" fxLayoutAlign="center" class="window-container"
     [ngStyle]="{ 'background-image': 'url(' + image + ')' }">
-    <div fxLayout="row">
-        <ng-container *ngIf="cardPosition === 'right'">
-            <div fxFlex="1 1 calc(5em)"></div>
-        </ng-container>
-        <div fxFlex="1 1 calc(15em)" class="card-container" [routerLink]="[ link ]">
-            <mat-card fxFlexFill class="mat-elevation-z1" [ngClass]="cardPosition">
-                <mat-card-title>
-                    {{ title }}
-                </mat-card-title>
-                <mat-card-content>
-                    <ng-content></ng-content>
-                </mat-card-content>
-            </mat-card>
-        </div>
+    <div class="card-row" [ngClass]="{ 'expand': isBannerExpanded }">
+        <div fxLayout="row" fxFlexFill [fxLayoutAlign]="cardPosition === 'left' ? 'start' : 'end'">
+            <div fxFlex="1 1 calc(15em)" class="card-container" [routerLink]="[ link ]"
+                [ngClass]="{ 'expand': isBannerExpanded }">
+                <mat-card fxFlexFill class="mat-elevation-z1" (click)="expandContent ? toggleBanner() : null"
+                    [ngClass]="cardPosition">
+                    <mat-card-title>
+                        {{ title }}
+                    </mat-card-title>
+                    <mat-card-content>
 
-        <ng-container *ngIf="cardPosition === 'left'">
-            <div fxFlex="1 1 calc(5em)"></div>
-        </ng-container>
+                        <ng-container *ngIf="!isBannerExpanded; else showExpandContent">
+                            <ng-content>
+                            </ng-content>
+                        </ng-container>
+                        <ng-template #showExpandContent>
+                            <ng-container *ngTemplateOutlet="expandContent">
+                            </ng-container>
+                        </ng-template>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
     </div>
 </div>
