@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "cz": "./node_modules/.bin/git-cz",
     "compress": "node build/compress.js",
-    "deploy-pac-politics": "firebase deploy --public dist/pac-politics"
+    "deploy-pac-politics": "firebase deploy --public dist/pac-politics",
+    "deploy-portfolio": "firebase deploy --public dist/portfolio"
   },
   "config": {
     "commitizen": {
@@ -35,6 +36,7 @@
     "core-js": "^2.5.4",
     "firebase": "^5.8.4",
     "logrocket": "^0.6.19",
+    "ngx-markdown": "^7.1.4",
     "ngx-take-until-destroy": "^5.4.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",

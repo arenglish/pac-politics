@@ -11,6 +11,7 @@ import { CvComponent } from './main/cv/cv.component';
 import { ProjectsComponent } from './main/projects/projects.component';
 import { PhotographyComponent } from './main/photography/photography.component';
 import { VideosComponent } from './main/videos/videos.component';
+import { MarkdownModule, MarkdownService, MarkedOptions } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,13 @@ import { VideosComponent } from './main/videos/videos.component';
     BrowserModule,
     MatCardModule,
     FlexLayoutModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MarkdownModule
   ],
-  providers: [],
+  providers: [
+    MarkdownService,
+    MarkedOptions
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
