@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PacPoliticsComponent } from './app.component';
 import { BillsResolver } from './routing/bills.resolver';
 import { PacResolver } from './routing/pac.resolver';
-import { SideNavComponent } from './side-nav/side-nav.component';
+import { ChamberTabsComponent } from './chamber-tabs/chamber-tabs.component';
 
 //This is my case 
 const routes: Routes = [
@@ -14,7 +13,7 @@ const routes: Routes = [
     },
     {
         path: 'pacs',
-        component: SideNavComponent,
+        component: ChamberTabsComponent,
         resolve: {
             bills: BillsResolver,
             pacs: PacResolver

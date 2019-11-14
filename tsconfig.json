@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@shared": [
+        "projects/shared/public_api"
+      ],
+      "@shared/*": [
+        "projects/shared/public_api"
+      ]
+    }
   }
 }

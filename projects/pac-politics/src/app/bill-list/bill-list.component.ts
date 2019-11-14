@@ -5,6 +5,7 @@ import { Vote } from '../models/vote.model';
 import { Bill } from '../models/bill.model';
 import { filter, map } from 'rxjs/operators';
 import { isObjectEmpty } from '../utils/logic-helpers';
+import { StoreService } from '../services/store.service';
 
 @Component({
     selector: 'pac-bill-list',
@@ -17,19 +18,17 @@ export class BillListComponent implements OnInit {
     bills$: Observable<Bill[]>;
     selectedBillInfo$: Subject<Bill> = new Subject();
 
-    constructor(private proPublicaService: ProPublicaService) { }
+    constructor(private store: StoreService) { }
 
     ngOnInit() {
-        // this.votes$ = this.proPublicaService.getRecentVotes(this.chamber);
-
-        this.bills$ = this.proPublicaService.getRecentBills(this.chamber);
+        this.bills$ = this.store.bills.entities$;
     }
 
     selectBill(billUri: string) {
-        this.selectedBillInfo$.next(null);
-        this.proPublicaService.getBillDetails(billUri).subscribe(bill => {
-            this.selectedBillInfo$.next(bill);
-        })
+        // this.selectedBillInfo$.next(null);
+        // this.proPublicaService.getBillDetails(billUri).subscribe(bill => {
+        //     this.selectedBillInfo$.next(bill);
+        // })
     }
 
 }

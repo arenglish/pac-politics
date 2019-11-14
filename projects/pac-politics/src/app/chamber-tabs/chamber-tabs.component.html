@@ -1,9 +1,9 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row fxFlexFill fxLayout="row" fxLayoutAlign="center center">
-            <p>{{ (selectedPac$ | async).name }}</p>
-    </mat-toolbar-row>
-</mat-toolbar>
-<mat-tab-group class="mat-elevation-z1">
+    
+<div id="header-action-bar">
+    <pac-member-search [members]="members$ | async" (memberFound)="memberFound($event)"></pac-member-search>
+</div>
+<!-- <us-map></us-map> -->
+<!-- <mat-tab-group class="mat-elevation-z1">
     <mat-tab label="House">
         <pac-bill-list [chamber]="'house'">
 
@@ -14,4 +14,4 @@
 
         </pac-bill-list>
     </mat-tab>
-</mat-tab-group>
+</mat-tab-group> -->

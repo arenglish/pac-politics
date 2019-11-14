@@ -30,10 +30,8 @@ export class SideNavComponent implements OnInit, OnDestroy {
     ) {
         this.sideNavOpen$ = this.store.sideNavOpen$;
         this.mobileBrowser$ = this.store.mobileBrowser$;
-        this.pacs$ = this.store.pacs$;
-        this.selectedPacId$ = this.store.selectedPacId$.pipe(map(res => {
-            return res;
-        }));
+        this.pacs$ = this.store.pacs.entities$;
+        this.selectedPacId$ = this.store.selectedPacId$;
     }
 
     ngOnInit() {

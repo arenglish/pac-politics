@@ -6,13 +6,7 @@ import { CYCLE_YEARS } from './cycles.constants';
     templateUrl: './cycle-picker.component.html',
     styleUrls: ['./cycle-picker.component.scss']
 })
-export class CyclePickerComponent implements OnInit {
+export class CyclePickerComponent {
     cycles = CYCLE_YEARS.sort();
     numberOfCycles = this.cycles.length;
-
-    constructor() { }
-
-    ngOnInit() {
-    }
-
 }

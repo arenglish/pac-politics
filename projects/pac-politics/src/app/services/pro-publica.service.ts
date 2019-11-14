@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { plainToClass } from 'class-transformer';
 import { Bill } from '../models/bill.model';
 import { Vote } from '../models/vote.model';
 import * as camelCaseKeys from 'camelcase-keys';
+import { Chamber, Member } from '../models/member.model';
+
+interface ProPublicaResponse<T> {
+    copyright: string;
+    results: T;
+    status: number;
+}
 
 @Injectable({
     providedIn: 'root'
@@ -18,13 +25,11 @@ export class ProPublicaService {
 
     constructor(private http: HttpClient) { }
 
-    getRecentVotes(chamber: 'house' | 'senate' = 'house', count: number = 100): Observable<Vote[]> {
+    getRecentVotes(chamber: Chamber = 'house', count: number = 100): Observable<Vote[]> {
         const url = `${this.proPublicahost}/${chamber}/votes/recent.json`;
 
         return this.http.get(url, {
-            headers: new HttpHeaders({
-                'X-API-Key': 'XHmLsDuRz3x59wsNN295qUN0IJAzkYCFXpIk11qJ'
-            })
+            headers: this.headers
         }).pipe(
             map(res => camelCaseKeys(res, { deep: true })),
             map((res: any) => {
@@ -35,6 +40,18 @@ export class ProPublicaService {
                 return votes;
             })
         );
+    }
+
+    getCurrentMembersByState(state: string, chamber: Chamber = 'house'): Observable<Member[]> {
+        const url = `${this.proPublicahost}/members/${chamber}/${state}/current.json`;
+
+        return this.http.get(url, {
+            headers: this.headers
+        }).pipe(
+            map((res: ProPublicaResponse<Member[]>) => {
+                return plainToClass(Member, res.results);
+            })
+        )
     }
 
     getRecentBills(chamber: 'house' | 'senate' = 'house', count: number = 100): Observable<Bill[]> {
