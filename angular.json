@@ -21,18 +21,14 @@
             "index": "projects/pac-politics/src/index.html",
             "main": "projects/pac-politics/src/main.ts",
             "polyfills": "projects/pac-politics/src/polyfills.ts",
-            "tsConfig": "projects/pac-politics/tsconfig.app.json",
+            "tsConfig": "projects/pac-politics/tsconfig.json",
             "assets": [
               "projects/pac-politics/src/favicon.ico",
               "projects/pac-politics/src/assets"
             ],
-            "styles": [
-              "projects/pac-politics/src/styles.scss"
-            ],
+            "styles": ["projects/pac-politics/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "projects/pac-politics/src/scss"
-              ]
+              "includePaths": ["projects/pac-politics/src/scss"]
             },
             "scripts": []
           },
@@ -87,9 +83,7 @@
             "polyfills": "projects/pac-politics/src/polyfills.ts",
             "tsConfig": "projects/pac-politics/tsconfig.spec.json",
             "karmaConfig": "projects/pac-politics/karma.conf.js",
-            "styles": [
-              "projects/pac-politics/src/styles.scss"
-            ],
+            "styles": ["projects/pac-politics/src/styles.scss"],
             "scripts": [],
             "assets": [
               "projects/pac-politics/src/favicon.ico",
@@ -101,12 +95,10 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/pac-politics/tsconfig.app.json",
+              "projects/pac-politics/tsconfig.json",
               "projects/pac-politics/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -134,13 +126,9 @@
               "projects/portfolio/src/favicon.ico",
               "projects/portfolio/src/assets"
             ],
-            "styles": [
-              "projects/portfolio/src/styles.scss"
-            ],
+            "styles": ["projects/portfolio/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "projects/portfolio/src/scss"
-              ]
+              "includePaths": ["projects/portfolio/src/scss"]
             },
             "scripts": []
           },
@@ -195,9 +183,7 @@
             "polyfills": "projects/portfolio/src/polyfills.ts",
             "tsConfig": "projects/portfolio/tsconfig.spec.json",
             "karmaConfig": "projects/portfolio/karma.conf.js",
-            "styles": [
-              "projects/portfolio/src/styles.scss"
-            ],
+            "styles": ["projects/portfolio/src/styles.scss"],
             "scripts": [],
             "assets": [
               "projects/portfolio/src/favicon.ico",
@@ -212,9 +198,7 @@
               "projects/portfolio/tsconfig.app.json",
               "projects/portfolio/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -247,9 +231,106 @@
               "projects/shared/tsconfig.lib.json",
               "projects/shared/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "pro-publica": {
+      "root": "projects/pro-publica",
+      "sourceRoot": "projects/pro-publica/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/pro-publica/tsconfig.lib.json",
+            "project": "projects/pro-publica/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/pro-publica/src/test.ts",
+            "tsConfig": "projects/pro-publica/tsconfig.spec.json",
+            "karmaConfig": "projects/pro-publica/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/pro-publica/tsconfig.lib.json",
+              "projects/pro-publica/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "resource": {
+      "root": "projects/resource",
+      "sourceRoot": "projects/resource/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/resource/tsconfig.lib.json",
+            "project": "projects/resource/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/resource/src/test.ts",
+            "tsConfig": "projects/resource/tsconfig.spec.json",
+            "karmaConfig": "projects/resource/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/resource/tsconfig.lib.json",
+              "projects/resource/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "lib": {
+      "root": "projects/lib",
+      "sourceRoot": "projects/lib/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/lib/tsconfig.lib.json",
+            "project": "projects/lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lib/src/test.ts",
+            "tsConfig": "projects/lib/tsconfig.spec.json",
+            "karmaConfig": "projects/lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/lib/tsconfig.lib.json",
+              "projects/lib/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

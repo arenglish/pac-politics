@@ -1,0 +1,8 @@
+<button mat-button [matMenuTriggerFor]="cycleMenu">
+  {{ selectedCycle.year }} <mat-icon>arrow_drop_down</mat-icon>
+</button>
+<mat-menu #cycleMenu="matMenu">
+  <button mat-menu-item *ngFor="let cycle of cycles" (click)="setCycle(cycle)">
+    {{ cycle.year }}
+  </button>
+</mat-menu>

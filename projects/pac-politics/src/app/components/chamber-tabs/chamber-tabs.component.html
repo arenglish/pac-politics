@@ -1,0 +1,17 @@
+<div id="page" fxFlexFill fxLayout="column">
+  <div id="header-action-bar" fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="center">
+      <pac-member-search
+        [members]="members$ | async"
+        (memberFound)="memberFound($event)"
+      ></pac-member-search>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center" id="page-content">
+    <pac-member-bio
+      *ngIf="memberStore.members.entities$ | async"
+      [member]="memberStore.members.entities$ | async"
+      [memberImage]="memberStore.memberImage$ | async"
+    ></pac-member-bio>
+  </div>
+</div>

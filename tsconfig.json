@@ -1,5 +1,8 @@
 {
   "compileOnSave": false,
+  "angularCompilerOptions": {
+    "enableIvy": true
+  },
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -11,20 +14,16 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "types": ["node"],
+    "lib": ["es2018", "dom"],
     "paths": {
-      "@shared": [
-        "projects/shared/public_api"
-      ],
-      "@shared/*": [
-        "projects/shared/public_api"
-      ]
+      "@shared": ["projects/shared/src/public_api"],
+      "@shared/*": ["projects/shared/src/public_api/*"],
+      "@arenglish/pro-publica": ["dist/pro-publica"],
+      "@arenglish/pro-publica/*": ["dist/pro-publica/*"],
+      "@arenglish/resource": ["dist/resource"],
+      "@arenglish/resource/*": ["dist/resource/*"]
     }
   }
 }

@@ -1,22 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'mixins';
-@import 'theme';
+@import "mixins";
+@import "theme";
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .flex-spacer {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .clickable {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-// html, body {
-//     font-size: 14px !important;
-// }
+html,
+body {
+  font-size: 14px !important;
+  height: 100%;
+}
 
 // .font-playfair {
 //     font-family: 'Playfair Display', serif !important;

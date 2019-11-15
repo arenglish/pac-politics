@@ -3,9 +3,9 @@ Version: webpack 4.29.0
 Time: 27491ms
 Built at: 03/04/2019 9:55:53 PM
                             Asset       Size  Chunks                    Chunk Names
-             3rdpartylicenses.txt   43.5 KiB          [emitted]         
-                      favicon.ico  643 bytes          [emitted]         
-                       index.html   3.14 KiB          [emitted]         
+             3rdpartylicenses.txt   43.5 KiB          [emitted]
+                      favicon.ico  643 bytes          [emitted]
+                       index.html   3.14 KiB          [emitted]
      main.9ded88d02b389573ffee.js   1.41 MiB       1  [emitted]  [big]  main
 polyfills.1197ff7ecda9fea82b8e.js   61.7 KiB       2  [emitted]         polyfills
   runtime.cc42bc97d3d20d4dc584.js   1.41 KiB       0  [emitted]         runtime
@@ -17,7 +17,7 @@ chunk    {0} runtime.cc42bc97d3d20d4dc584.js (runtime) 0 bytes ={1}= ={2}= ={3}=
 chunk    {1} main.9ded88d02b389573ffee.js (main) 5.77 MiB ={0}= [initial] [rendered]
  [0] multi ./src/main.ts 28 bytes {1} [built]
      ModuleConcatenation bailout: Module is not an ECMAScript module
-     multi entry 
+     multi entry
  [+RRg] /Users/aengli1/dev/ng-workspace/node_modules/@firebase/polyfill/node_modules/core-js/fn/string/starts-with.js 116 bytes {1} [built]
      [no exports used]
      ModuleConcatenation bailout: Module is not an ECMAScript module
@@ -699,7 +699,7 @@ chunk    {1} main.9ded88d02b389573ffee.js (main) 5.77 MiB ={0}= [initial] [rende
      |     harmony side effect evaluation @angular/core  /Users/aengli1/dev/ng-workspace/node_modules/@angular/router/router.ngfactory.js 7:0-36
      |     harmony side effect evaluation @angular/core  /Users/aengli1/dev/ng-workspace/node_modules/@angular/forms/fesm5/forms.js 7:0-258
      |     harmony side effect evaluation @angular/core  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/toolbar/typings/index.ngfactory.js 7:0-36
-     |     harmony side effect evaluation @angular/core  ./src/app/services/pro-publica.service.ts 7:0-36
+     |     harmony side effect evaluation @angular/core  ./src/app/services/member.service.ts 7:0-36
      |     harmony side effect evaluation @angular/core  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/sidenav/typings/index.ngfactory.js 7:0-36
      |     harmony side effect evaluation @angular/core  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/icon/typings/index.ngfactory.js 7:0-36
      |     harmony side effect evaluation @angular/core  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/button/typings/index.ngfactory.js 7:0-36
@@ -1969,8 +1969,8 @@ chunk    {1} main.9ded88d02b389573ffee.js (main) 5.77 MiB ={0}= [initial] [rende
      |     harmony import specifier @angular/core  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/esm5/sidenav.es5.js 70:52-66
      |     harmony import specifier @angular/core  ./src/app/side-nav/side-nav.component.ngfactory.js 70:60-67
      |     harmony import specifier @angular/core  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/sidenav/typings/index.ngfactory.js 70:61-68
-     |     harmony import specifier @angular/core  ./src/app/services/pro-publica.service.ts 71:40-59
-     |     harmony import specifier @angular/core  ./src/app/services/pro-publica.service.ts 71:139-148
+     |     harmony import specifier @angular/core  ./src/app/services/member.service.ts 71:40-59
+     |     harmony import specifier @angular/core  ./src/app/services/member.service.ts 71:139-148
      |     harmony import specifier @angular/core  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/tabs/typings/index.ngfactory.js 72:56-63
      |     harmony import specifier @angular/core  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/list/typings/index.ngfactory.js 73:28-35
      |     harmony import specifier @angular/core  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/sidenav/typings/index.ngfactory.js 73:56-63
@@ -4567,14 +4567,14 @@ chunk    {1} main.9ded88d02b389573ffee.js (main) 5.77 MiB ={0}= [initial] [rende
      |     harmony import specifier @angular/material/expansion  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/expansion/typings/index.ngfactory.js 54:105-131
      | /Users/aengli1/dev/ng-workspace/node_modules/@angular/common/fesm5/http.js 79 KiB [built]
      |     [only some exports used: HttpXsrfTokenExtractor, ɵangular_packages_common_http_http_g, ɵangular_packages_common_http_http_e, ɵangular_packages_common_http_http_h, ɵangular_packages_common_http_http_f, HTTP_INTERCEPTORS, ɵangular_packages_common_http_http_d, XhrFactory, HttpXhrBackend, HttpBackend, HttpHandler, ɵHttpInterceptingHandler, HttpClient, HttpClientXsrfModule, HttpClientModule, HttpHeaders]
-     |     harmony side effect evaluation @angular/common/http  ./src/app/services/pro-publica.service.ts 1:0-63
+     |     harmony side effect evaluation @angular/common/http  ./src/app/services/member.service.ts 1:0-63
      |     harmony side effect evaluation @angular/common/http  ./src/app/services/fec.service.ts 2:0-63
-     |     harmony side effect evaluation @angular/common/http  ./src/app/services/pro-publica.service.ts 8:0-43
+     |     harmony side effect evaluation @angular/common/http  ./src/app/services/member.service.ts 8:0-43
      |     harmony side effect evaluation @angular/common/http  ./src/app/services/fec.service.ts 9:0-43
      |     harmony side effect evaluation @angular/common/http  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/esm5/icon.es5.js 9:0-50
-     |     harmony import specifier @angular/common/http  ./src/app/services/pro-publica.service.ts 13:27-38
+     |     harmony import specifier @angular/common/http  ./src/app/services/member.service.ts 13:27-38
      |     harmony side effect evaluation @angular/common/http  ./src/app/app.module.ngfactory.js 20:0-44
-     |     harmony import specifier @angular/common/http  ./src/app/services/pro-publica.service.ts 26:25-36
+     |     harmony import specifier @angular/common/http  ./src/app/services/member.service.ts 26:25-36
      |     harmony import specifier @angular/common/http  ./src/app/services/fec.service.ts 28:27-38
      |     harmony import specifier @angular/common/http  ./src/app/services/fec.service.ts 50:128-141
      |     harmony import specifier @angular/common/http  ./src/app/app.module.ngfactory.js 53:2478-2504
@@ -4608,10 +4608,10 @@ chunk    {1} main.9ded88d02b389573ffee.js (main) 5.77 MiB ={0}= [initial] [rende
      |     harmony import specifier @angular/common/http  ./src/app/app.module.ngfactory.js 53:6750-6770
      |     harmony import specifier @angular/common/http  ./src/app/app.module.ngfactory.js 53:9842-9882
      |     harmony import specifier @angular/common/http  ./src/app/app.module.ngfactory.js 53:9916-9956
-     |     harmony import specifier @angular/common/http  ./src/app/services/pro-publica.service.ts 71:149-162
+     |     harmony import specifier @angular/common/http  ./src/app/services/member.service.ts 71:149-162
      |     harmony import specifier @angular/common/http  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/esm5/icon.es5.js 976:156-166
      |     harmony import specifier @angular/common/http  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/esm5/icon.es5.js 999:39-49
-     | ./src/app/services/pro-publica.service.ts 3 KiB [built]
+     | ./src/app/services/member.service.ts 3 KiB [built]
      |     [only some exports used: ProPublicaService]
      |     harmony side effect evaluation ../services/pro-publica.service  ./src/app/bill-list/bill-list.component.ts 2:0-68
      |     harmony side effect evaluation ../services/pro-publica.service  ./src/app/routing/bills.resolver.ts 2:0-68
@@ -5227,15 +5227,15 @@ chunk    {1} main.9ded88d02b389573ffee.js (main) 5.77 MiB ={0}= [initial] [rende
      |     harmony import specifier rxjs/operators  ./src/app/side-nav/side-nav.component.ts 15:61-64 (skipped side-effect-free modules)
      |     harmony import specifier rxjs/operators  ./src/app/services/firestore.service.ts 16:59-62 (skipped side-effect-free modules)
      |     harmony import specifier ../operators/map  /Users/aengli1/dev/ng-workspace/node_modules/rxjs/_esm5/internal/observable/forkJoin.js 25:38-41
-     |     harmony import specifier rxjs/operators  ./src/app/services/pro-publica.service.ts 29:16-19 (skipped side-effect-free modules)
-     |     harmony import specifier rxjs/operators  ./src/app/services/pro-publica.service.ts 29:84-87 (skipped side-effect-free modules)
+     |     harmony import specifier rxjs/operators  ./src/app/services/member.service.ts 29:16-19 (skipped side-effect-free modules)
+     |     harmony import specifier rxjs/operators  ./src/app/services/member.service.ts 29:84-87 (skipped side-effect-free modules)
      |     harmony import specifier rxjs/operators  ./src/app/side-nav/side-nav.component.ts 30:77-80 (skipped side-effect-free modules)
      |     harmony import specifier rxjs/operators  ./src/app/services/fec.service.ts 37:20-23 (skipped side-effect-free modules)
      |     harmony import specifier rxjs/operators  ./src/app/services/fec.service.ts 37:88-91 (skipped side-effect-free modules)
-     |     harmony import specifier rxjs/operators  ./src/app/services/pro-publica.service.ts 47:16-19 (skipped side-effect-free modules)
-     |     harmony import specifier rxjs/operators  ./src/app/services/pro-publica.service.ts 47:84-87 (skipped side-effect-free modules)
-     |     harmony import specifier rxjs/operators  ./src/app/services/pro-publica.service.ts 61:16-19 (skipped side-effect-free modules)
-     |     harmony import specifier rxjs/operators  ./src/app/services/pro-publica.service.ts 61:84-87 (skipped side-effect-free modules)
+     |     harmony import specifier rxjs/operators  ./src/app/services/member.service.ts 47:16-19 (skipped side-effect-free modules)
+     |     harmony import specifier rxjs/operators  ./src/app/services/member.service.ts 47:84-87 (skipped side-effect-free modules)
+     |     harmony import specifier rxjs/operators  ./src/app/services/member.service.ts 61:16-19 (skipped side-effect-free modules)
+     |     harmony import specifier rxjs/operators  ./src/app/services/member.service.ts 61:84-87 (skipped side-effect-free modules)
      |     harmony import specifier rxjs/operators  /Users/aengli1/dev/ng-workspace/node_modules/@angular/cdk/esm5/layout.es5.js 198:83-86 (skipped side-effect-free modules)
      |     harmony import specifier rxjs/operators  /Users/aengli1/dev/ng-workspace/node_modules/@angular/cdk/esm5/layout.es5.js 248:38-41 (skipped side-effect-free modules)
      |     harmony import specifier rxjs/operators  /Users/aengli1/dev/ng-workspace/node_modules/@angular/material/esm5/sidenav.es5.js 263:78-81 (skipped side-effect-free modules)
@@ -6260,15 +6260,15 @@ chunk    {1} main.9ded88d02b389573ffee.js (main) 5.77 MiB ={0}= [initial] [rende
      | ./src/app/models/bill.model.ts 491 bytes [built]
      |     [only some exports used: Bill]
      |     harmony side effect evaluation ./bill.model  ./src/app/models/vote.model.ts 3:0-36
-     |     harmony side effect evaluation ../models/bill.model  ./src/app/services/pro-publica.service.ts 4:0-44
+     |     harmony side effect evaluation ../models/bill.model  ./src/app/services/member.service.ts 4:0-44
      |     harmony import specifier ./bill.model  ./src/app/models/vote.model.ts 4:86-90
      |     harmony import specifier ./bill.model  ./src/app/models/vote.model.ts 16:42-46
-     |     harmony import specifier ../models/bill.model  ./src/app/services/pro-publica.service.ts 54:37-41
-     |     harmony import specifier ../models/bill.model  ./src/app/services/pro-publica.service.ts 68:32-36
+     |     harmony import specifier ../models/bill.model  ./src/app/services/member.service.ts 54:37-41
+     |     harmony import specifier ../models/bill.model  ./src/app/services/member.service.ts 68:32-36
      | ./src/app/models/vote.model.ts 690 bytes [built]
      |     [only some exports used: Vote]
-     |     harmony side effect evaluation ../models/vote.model  ./src/app/services/pro-publica.service.ts 5:0-44
-     |     harmony import specifier ../models/vote.model  ./src/app/services/pro-publica.service.ts 33:37-41
+     |     harmony side effect evaluation ../models/vote.model  ./src/app/services/member.service.ts 5:0-44
+     |     harmony import specifier ../models/vote.model  ./src/app/services/member.service.ts 33:37-41
      | /Users/aengli1/dev/ng-workspace/node_modules/rxjs/_esm5/internal/operators/withLatestFrom.js 3 KiB [built]
      |     [only some exports used: withLatestFrom]
      |     harmony import specifier rxjs/operators  ./src/app/chamber-tabs/chamber-tabs.component.ts 9:77-91 (skipped side-effect-free modules)
@@ -6920,7 +6920,7 @@ chunk    {1} main.9ded88d02b389573ffee.js (main) 5.77 MiB ={0}= [initial] [rende
 chunk    {2} polyfills.1197ff7ecda9fea82b8e.js (polyfills) 192 KiB ={0}= [initial] [rendered]
  [1] multi ./src/polyfills.ts 28 bytes {2} [built]
      ModuleConcatenation bailout: Module is not an ECMAScript module
-     multi entry 
+     multi entry
  [+KrA] /Users/aengli1/dev/ng-workspace/node_modules/core-js/modules/_array-species-constructor.js 475 bytes {2} [built]
      ModuleConcatenation bailout: Module is not an ECMAScript module
      cjs require ./_array-species-constructor [ao8i] /Users/aengli1/dev/ng-workspace/node_modules/core-js/modules/_array-species-create.js 2:25-64
@@ -7325,7 +7325,7 @@ chunk    {2} polyfills.1197ff7ecda9fea82b8e.js (polyfills) 192 KiB ={0}= [initia
 chunk    {3} styles.2a2baf88c141f90b30a8.css (styles) 93.2 KiB ={0}= [initial] [rendered]
  [2] multi ./src/styles.scss 28 bytes {3} [built]
      ModuleConcatenation bailout: Module is not an ECMAScript module
-     multi entry 
+     multi entry
  [] css /Users/aengli1/dev/ng-workspace/node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!/Users/aengli1/dev/ng-workspace/node_modules/postcss-loader/src??extracted!/Users/aengli1/dev/ng-workspace/node_modules/sass-loader/lib/loader.js??ref--14-3!./src/styles.scss 93.1 KiB {3}
      ModuleConcatenation bailout: Module is not an ECMAScript module
      [+EN/] ./src/styles.scss
@@ -11046,7 +11046,7 @@ WARNING in Terser Plugin: Dropping duplicated definition of variable req [polyfi
 WARNING in Terser Plugin: Dropping duplicated definition of variable result [polyfills.1197ff7ecda9fea82b8e.js:4808,12]
 Child mini-css-extract-plugin ../../node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!../../node_modules/postcss-loader/src/index.js??extracted!../../node_modules/sass-loader/lib/loader.js??ref--14-3!src/styles.scss:
                    Asset      Size  Chunks  Chunk Names
-    3rdpartylicenses.txt  13 bytes          
+    3rdpartylicenses.txt  13 bytes
     Entrypoint mini-css-extract-plugin = *
     chunk    {0} * (mini-css-extract-plugin) 94.7 KiB [entry] [rendered]
      [RF5W] /Users/aengli1/dev/ng-workspace/node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!/Users/aengli1/dev/ng-workspace/node_modules/postcss-loader/src??extracted!/Users/aengli1/dev/ng-workspace/node_modules/sass-loader/lib/loader.js??ref--14-3!./src/styles.scss 94.7 KiB {0} [built]

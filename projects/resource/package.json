@@ -1,0 +1,8 @@
+{
+  "name": "@arenglish/resource",
+  "version": "1.0.0",
+  "description": "model for remote http resource services",
+  "scripts": {},
+  "author": "Austin R English",
+  "license": "ISC"
+}
