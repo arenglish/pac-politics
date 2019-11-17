@@ -1,0 +1,42 @@
+<div id="member-search-page" fxFlexFill fxLayout="column">
+  <mat-tab-group
+    fxFlexFill
+    (selectedTabChange)="setChamber($event)"
+    animationDuration="1000ms"
+  >
+    <mat-tab fxFlexFill label="Senate">
+      <ng-container
+        *ngTemplateOutlet="memberSearchPageContent; context: { $implicit: 'senate' }"
+      ></ng-container>
+    </mat-tab>
+    <mat-tab fxFlexFill label="House">
+      <ng-container
+        *ngTemplateOutlet="memberSearchPageContent; context: { $implicit: 'house' }"
+      ></ng-container>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<ng-template #memberSearchPageContent let-chamber>
+  <div
+    fxFlexFill
+    id="member-search-page-content"
+    [ngClass]="chamber"
+    fxLayout="column"
+    fxLayoutAlign="start center"
+    fxLayoutGap="2em"
+  >
+    <pac-member-search
+      [members]="members$ | async"
+      (memberFound)="memberFound($event)"
+    ></pac-member-search>
+    <div fxFlex="10em"></div>
+    <ng-container *ngIf="memberStore.selectedMember$ | async">
+      <pac-member-bio
+        id="bio-card"
+        [member]="memberStore.selectedMember$ | async"
+        [memberImage]="memberStore.memberImage$ | async"
+      ></pac-member-bio>
+    </ng-container>
+  </div>
+</ng-template>

@@ -1,0 +1,41 @@
+@import "theme";
+
+#member-search-page {
+  background-size: 800px;
+  background-position: -200px -200px;
+  background-repeat: no-repeat;
+}
+
+:host ::ng-deep .mat-tab-body-wrapper {
+  height: 100%;
+}
+
+#member-search-page-content {
+  padding: 1em;
+  background-repeat: no-repeat;
+  background-size: 1200px 1200px;
+  overflow-y: auto !important;
+
+  &.house {
+    background-image: url("/assets/house-seal.svg");
+    background-position: calc(100% + 400px) 0;
+  }
+
+  &.senate {
+    background-image: url("/assets/senate-seal.svg");
+    background-position: -400px -400px;
+  }
+}
+
+#background-seals {
+  top: 100px;
+  left: -100px;
+  z-index: -1;
+  height: 125vw;
+  position: fixed;
+}
+
+#seal-wallpaper {
+  z-index: -1;
+  height: 125vw;
+}

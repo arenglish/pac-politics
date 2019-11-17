@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  assets: {
+    logos: {
+      republican: "/assets/republican-logo.jpg",
+      democrat: "/assets/democrat-logo.png",
+      independent: "/assets/independent-logo.svg"
+    },
+    seals: {
+      house: "/assets/house-seal.svg",
+      senate: "/assets/senate-seal.svg"
+    }
+  }
 };
 
 /*

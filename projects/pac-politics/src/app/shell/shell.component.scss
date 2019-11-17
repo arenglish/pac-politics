@@ -1,7 +1,18 @@
+:host {
+  z-index: 1;
+}
+
 .nav-bar-container {
   height: 64px;
   position: relative;
   z-index: 1;
+}
+
+#shell-container {
+}
+
+#shell-content {
+  overflow: hidden;
 }
 
 mat-toolbar {

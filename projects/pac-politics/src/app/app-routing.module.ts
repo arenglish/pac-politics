@@ -1,16 +1,10 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { ChamberTabsComponent } from "./components/chamber-tabs/chamber-tabs.component";
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "pacs",
-    pathMatch: "full"
-  },
-  {
-    path: "pacs",
-    component: ChamberTabsComponent
+    path: "*",
+    loadChildren: () => import("./shell/shell.module").then(m => m.ShellModule)
   }
 ];
 

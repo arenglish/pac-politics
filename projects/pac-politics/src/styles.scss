@@ -16,8 +16,11 @@
 
 html,
 body {
+  scroll-behavior: smooth !important;
   font-size: 14px !important;
   height: 100%;
+  width: 100vw;
+  overflow: hidden;
 }
 
 // .font-playfair {

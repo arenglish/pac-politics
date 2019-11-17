@@ -15,12 +15,12 @@ export class CongressionalNumber {
     const currentTime = new Date();
     let currentYear = currentTime.getFullYear();
 
-    const endOfThisYearsSession = new Date(`${currentYear}-03-1`).valueOf();
+    const startOfThisYearsSession = new Date(`${currentYear}-01-3`).valueOf();
 
     if (currentYear % 2 === 0) {
       currentYear = currentYear + 1;
-    } else if (currentTime.valueOf() > endOfThisYearsSession) {
-      currentYear = currentYear + 2;
+    } else if (currentTime.valueOf() < startOfThisYearsSession) {
+      currentYear = currentYear - 2;
     }
     year = year || currentYear;
 
