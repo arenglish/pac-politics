@@ -3,6 +3,8 @@ import { BehaviorSubject } from "rxjs";
 import { Entity } from "../../shared/models/entity.model";
 import { ChamberTypes, CHAMBERS } from "@arenglish/pro-publica";
 
+type MemberSearchViewPositions = "search" | "bio";
+
 @Injectable({
   providedIn: "root"
 })
@@ -16,6 +18,10 @@ export class StoreService {
   readonly selectedCongressSession = new Entity<number>(
     new BehaviorSubject(null)
   );
+
+  readonly memberSearchViewPosition = new Entity<MemberSearchViewPositions>(
+    new BehaviorSubject<MemberSearchViewPositions>("search")
+  );
   readonly selectedMemberID = new Entity<string>(new BehaviorSubject(""));
   readonly selectedChamber = new Entity<ChamberTypes>(
     new BehaviorSubject(CHAMBERS.both)
@@ -26,8 +32,12 @@ export class StoreService {
   set = {
     selectedCongressSession: (congress: number) =>
       this.selectedCongressSession.hydrate(congress),
-    selectedMemberID: (memberID: string) =>
-      this.selectedMemberID.hydrate(memberID),
+    selectedMemberID: (memberID: string) => {
+      if (memberID) {
+        this.memberSearchViewPosition.hydrate("bio");
+      }
+      this.selectedMemberID.hydrate(memberID);
+    },
     selectedChamber: (chamber: ChamberTypes) =>
       this.selectedChamber.hydrate(chamber)
   };

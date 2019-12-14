@@ -1,4 +1,5 @@
 import { Observable, BehaviorSubject } from "rxjs";
+import { shareReplay } from "rxjs/operators";
 
 export class Entity<T> {
   protected readonly source$: BehaviorSubject<T>;
@@ -6,7 +7,7 @@ export class Entity<T> {
 
   constructor(source$: BehaviorSubject<T>) {
     this.source$ = source$;
-    this.entities$ = this.source$.asObservable();
+    this.entities$ = this.source$.asObservable().pipe(shareReplay(1));
   }
 
   hydrate(source: T) {

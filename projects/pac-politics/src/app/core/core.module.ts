@@ -7,8 +7,6 @@ import {
   MemberService
 } from "@arenglish/pro-publica";
 import { MemberStore } from "./services/member.store";
-import * as LogRocket from "logrocket";
-LogRocket.init("e39dmo/pac-politics");
 
 @NgModule({
   declarations: [],

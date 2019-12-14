@@ -1,4 +1,5 @@
 import { Expose, Transform } from "class-transformer";
+import { Vote } from "./vote.model";
 export enum CHAMBERS {
   house = "house",
   senate = "senate",
@@ -24,6 +25,7 @@ export class Member {
   firstName: string;
   lastName: string;
   name: string;
+  votes: Vote[];
 
   constructor(init: Member) {
     Object.assign(this, init);

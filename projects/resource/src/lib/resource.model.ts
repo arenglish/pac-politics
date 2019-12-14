@@ -41,7 +41,7 @@ export class ResourceServiceBaseOptions implements ApiEndpointOptions {
 
   endpointKey?: string;
   params?: { [index: string]: string };
-  queryParams?: { [index: string]: string | number };
+  queryParams?: { [index: string]: string };
   paths?: StringIndexable;
   headers?: Headers;
   urlOverride?: string;

@@ -1,42 +1,59 @@
 <div id="member-search-page" fxFlexFill fxLayout="column">
   <mat-tab-group
     fxFlexFill
+    [selectedIndex]="($selectedChamber | async) === 'senate' ? 0 : 1"
     (selectedTabChange)="setChamber($event)"
     animationDuration="1000ms"
   >
     <mat-tab fxFlexFill label="Senate">
-      <ng-container
-        *ngTemplateOutlet="memberSearchPageContent; context: { $implicit: 'senate' }"
-      ></ng-container>
+      <ng-container *ngIf="($selectedChamber | async) === 'senate'">
+        <ng-container
+          *ngTemplateOutlet="memberSearchPageContent; context: { $implicit: 'senate' }"
+        ></ng-container>
+      </ng-container>
     </mat-tab>
     <mat-tab fxFlexFill label="House">
-      <ng-container
-        *ngTemplateOutlet="memberSearchPageContent; context: { $implicit: 'house' }"
-      ></ng-container>
+      <ng-container *ngIf="($selectedChamber | async) === 'house'">
+        <ng-container
+          *ngTemplateOutlet="memberSearchPageContent; context: { $implicit: 'house' }"
+        ></ng-container>
+      </ng-container>
     </mat-tab>
   </mat-tab-group>
 </div>
 
 <ng-template #memberSearchPageContent let-chamber>
   <div
-    fxFlexFill
     id="member-search-page-content"
-    [ngClass]="chamber"
+    fxFlexFill
     fxLayout="column"
     fxLayoutAlign="start center"
-    fxLayoutGap="2em"
   >
+    <!--        <div class="bg"-->
+    <!--             [ngClass]="chamber + '-seal ' + (store.memberSearchViewPosition.entities$ | async)"></div>-->
     <pac-member-search
+      class="snap-child member-search"
       [members]="members$ | async"
       (memberFound)="memberFound($event)"
     ></pac-member-search>
-    <div fxFlex="10em"></div>
-    <ng-container *ngIf="memberStore.selectedMember$ | async">
+    <div fxFlex="0 0 100vh"></div>
+    <div
+      fxFlex="0 0 100%"
+      *ngIf="(store.memberSearchViewPosition.entities$ | async) === 'bio'"
+      class="snap-child"
+    >
       <pac-member-bio
-        id="bio-card"
+        #bioCard
         [member]="memberStore.selectedMember$ | async"
         [memberImage]="memberStore.memberImage$ | async"
+        (seeVotingRecordButtonClicked)="scrollToVotes($event)"
       ></pac-member-bio>
-    </ng-container>
+    </div>
+    <div fxFlex fxLayout="row wrap" fxLayoutGap="1em grid" class="snap-child">
+      <pac-bill-group
+        *ngFor="let bill of memberBills$ | async"
+        [bill]="bill"
+      ></pac-bill-group>
+    </div>
   </div>
 </ng-template>

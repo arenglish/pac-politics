@@ -6,14 +6,11 @@
     "*.{js,ts,json,scss,css,html}": [
       "prettier --write",
       "git add"
-    ],
-    "*.{ts,js,spec.ts}": [
-      "npm run lint:ts",
-      "git add"
     ]
   },
   "scripts": {
     "build": "ng build",
+    "process-photos": "node build/load-photos",
     "compress": "node build/compress.js",
     "cz": "./node_modules/.bin/git-cz",
     "dep-pac": "firebase use pac-politics && firebase deploy --public dist/pac-politics",
@@ -61,10 +58,12 @@
     "ngx-take-until-destroy": "^5.4.0",
     "request": "^2.88.0",
     "rxjs": "^6.5.3",
+    "tslib": "^1.10.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^8.2.0",
+    "@angular-devkit/build-angular": "~0.803.19",
     "@angular-devkit/build-ng-packagr": "^0.803.19",
     "@angular/cli": "^8.3.19",
     "@angular/compiler-cli": "^8.2.14",

@@ -331,6 +331,155 @@
           }
         }
       }
+    },
+    "env-url": {
+      "projectType": "library",
+      "root": "projects/env-url",
+      "sourceRoot": "projects/env-url/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/env-url/tsconfig.lib.json",
+            "project": "projects/env-url/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/env-url/src/test.ts",
+            "tsConfig": "projects/env-url/tsconfig.spec.json",
+            "karmaConfig": "projects/env-url/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/env-url/tsconfig.lib.json",
+              "projects/env-url/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "photo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/photo",
+      "sourceRoot": "projects/photo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/photo",
+            "index": "projects/photo/src/index.html",
+            "main": "projects/photo/src/main.ts",
+            "polyfills": "projects/photo/src/polyfills.ts",
+            "tsConfig": "projects/photo/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/photo/src/favicon.ico",
+              "projects/photo/src/assets"
+            ],
+            "styles": ["projects/photo/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/photo/src/environments/environment.ts",
+                  "with": "projects/photo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "photo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "photo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "photo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/photo/src/test.ts",
+            "polyfills": "projects/photo/src/polyfills.ts",
+            "tsConfig": "projects/photo/tsconfig.spec.json",
+            "karmaConfig": "projects/photo/karma.conf.js",
+            "assets": [
+              "projects/photo/src/favicon.ico",
+              "projects/photo/src/assets"
+            ],
+            "styles": ["projects/photo/src/styles.scss"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/photo/tsconfig.app.json",
+              "projects/photo/tsconfig.spec.json",
+              "projects/photo/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/photo/e2e/protractor.conf.js",
+            "devServerTarget": "photo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "photo:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "pac-politics"

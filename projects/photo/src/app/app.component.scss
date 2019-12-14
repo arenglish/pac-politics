@@ -1,0 +1,12 @@
+.photo-tile {
+  display: flex;
+  height: 100%;
+  width: auto;
+  margin: 2px;
+}
+.photo-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 300px;
+}

@@ -50,4 +50,21 @@ export class MemberService extends ProPublicaGetService<Member> {
       }
     });
   }
+
+  memberVotePositions(
+    memberId: string,
+    offset = 0,
+    numberResults: number
+  ): Observable<ProPublicaResponse<Member[]>> {
+    return this.read<ProPublicaResponse<Member[]>>({
+      ...this.config,
+      queryParams: {
+        offset: offset.toString(),
+        num_results: numberResults.toString()
+      },
+      paths: {
+        subPath: `members/${memberId}/votes.json`
+      }
+    });
+  }
 }

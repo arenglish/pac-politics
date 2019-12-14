@@ -4,6 +4,7 @@ export type StringIndexable = { [index: string]: string };
 
 export interface ApiEndpointOptions {
   paths?: StringIndexable;
+  queryParams?: { [index: string]: string };
 }
 
 export class ApiEndpoint {
@@ -29,18 +30,37 @@ export class ApiEndpoint {
   }
 
   create(options: ApiEndpointOptions = {}) {
-    return this.host(options.paths);
+    return this.attachQuaeryParams(this.host(options.paths), options);
   }
   read(entityId: string | number, options: ApiEndpointOptions = {}) {
-    return `${this.host(options.paths)}/${entityId}`;
+    return this.attachQuaeryParams(
+      `${this.host(options.paths)}/${entityId}`,
+      options
+    );
   }
   list(options: ApiEndpointOptions) {
-    return this.host(options.paths);
+    return this.attachQuaeryParams(this.host(options.paths), options);
   }
   update(entityId: string | number, options: ApiEndpointOptions) {
-    return `${this.host(options.paths)}/${entityId}`;
+    return this.attachQuaeryParams(
+      `${this.host(options.paths)}/${entityId}`,
+      options
+    );
   }
   delete(entityId: string | number, options: ApiEndpointOptions) {
-    return `${this.host(options.paths)}/${entityId}`;
+    return this.attachQuaeryParams(
+      `${this.host(options.paths)}/${entityId}`,
+      options
+    );
+  }
+
+  private attachQuaeryParams(url, options: ApiEndpointOptions) {
+    if (!options.queryParams) {
+      return url;
+    }
+    const queries = Object.keys(options.queryParams).map(
+      key => key + "=" + options.queryParams[key]
+    );
+    return url + "?" + queries.join("&");
   }
 }

@@ -5,7 +5,7 @@ import {
   PRO_PUBLICA_CONFIG,
   ProPublicaConfig
 } from "./pro-publica-config-token";
-import { Bill } from "../models/bill.model";
+import { Bill, BillType } from "../models/bill.model";
 import { ProPublicaResponse } from "../models/pro-publica-response";
 import { ProPublicaGetService } from "./get.service";
 import { CHAMBERS, ChamberTypes, Congress } from "../models";
@@ -27,8 +27,8 @@ export class BillService extends ProPublicaGetService<Bill> {
     congress: number,
     chamber: ChamberTypes = CHAMBERS.both,
     type = "introduced"
-  ): Observable<ProPublicaResponse<Congress>> {
-    return this.read<ProPublicaResponse<Congress>>({
+  ): Observable<BillsResponse> {
+    return this.read<BillsResponse>({
       ...this.config,
       paths: {
         subPath: `${congress}/${chamber}/bills/${type}.json`
@@ -36,15 +36,27 @@ export class BillService extends ProPublicaGetService<Bill> {
     });
   }
 
-  getBillDetails(billID: string, congress: number): Observable<Bill> {
-    return this.getNestedResult(
-      "res.results.0.bills",
-      this.list<BillsResponse>({
-        ...this.config,
-        paths: {
-          subPath: `${congress}/bills/${billID}.json`
-        }
-      })
-    );
+  recentBillsByASpecificMember(
+    memberId: string,
+    type: BillType
+  ): Observable<BillsResponse> {
+    return this.read<BillsResponse>({
+      ...this.config,
+      paths: {
+        subPath: `members/${memberId}/bills/${type}.json`
+      }
+    });
+  }
+
+  getBillDetails(
+    billID: string,
+    congress: number
+  ): Observable<ProPublicaResponse<Bill[]>> {
+    return this.read<ProPublicaResponse<Bill[]>>({
+      ...this.config,
+      paths: {
+        subPath: `${congress}/bills/${billID}.json`
+      }
+    });
   }
 }

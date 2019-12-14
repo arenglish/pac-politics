@@ -25,7 +25,9 @@
       "@arenglish/resource": ["dist/resource"],
       "@arenglish/resource/*": ["dist/resource/*"],
       "@pac": ["./projects/pac-politics/src"],
-      "@pac/*": ["./projects/pac-politics/src/*"]
+      "@pac/*": ["./projects/pac-politics/src/*"],
+      "env-url": ["dist/env-url"],
+      "env-url/*": ["dist/env-url/*"]
     }
   }
 }

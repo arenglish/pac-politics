@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/pac-politics",
+    "public": "dist/photo",
     "rewrites": [
       {
         "source": "**",

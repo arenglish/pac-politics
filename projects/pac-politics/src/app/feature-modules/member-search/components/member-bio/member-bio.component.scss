@@ -1,11 +1,14 @@
 #bio-card {
-  font-size: 20px;
-  line-height: 1.5em;
-  background-color: rgba(256, 256, 256, 0.4);
+  background-color: rgba(256, 256, 256, 0.95);
   border-radius: 10px;
-  padding: 1em;
+  box-sizing: border-box !important;
+  max-height: 100%;
+}
+
+.bio-image-container {
+  overflow: hidden;
 }
 
 .bio-image {
-  width: 100%;
+  object-fit: cover;
 }

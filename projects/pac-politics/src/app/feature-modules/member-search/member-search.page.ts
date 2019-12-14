@@ -1,5 +1,12 @@
 import { Component } from "@angular/core";
-import { CHAMBERS, ChamberTypes, Member } from "@arenglish/pro-publica";
+import {
+  Bill,
+  CHAMBERS,
+  ChamberTypes,
+  Member,
+  Vote,
+  VoteService
+} from "@arenglish/pro-publica";
 import { Observable } from "rxjs";
 import { MemberStore } from "../../core/services/member.store";
 import { StoreService } from "../../core/services/store.service";
@@ -15,6 +22,8 @@ import {
   tap
 } from "rxjs/operators";
 import { MatTabChangeEvent } from "@angular/material";
+import { VoteStore } from "@pac/app/core/services/vote.store";
+import { BillStore } from "@pac/app/core/services/bill.store";
 
 @Component({
   selector: "pac-member-search-page",
@@ -23,6 +32,8 @@ import { MatTabChangeEvent } from "@angular/material";
 })
 export class MemberSearchPage {
   readonly members$: Observable<Member[]>;
+  readonly memberBills$: Observable<Bill[]>;
+  readonly votes$: Observable<Vote[]>;
   readonly background$: Observable<string>;
   private readonly backgroundUrlMap = {
     house: "/assets/house-seal.svg",
@@ -36,12 +47,16 @@ export class MemberSearchPage {
     1: "house"
   };
 
+  memberFound$: Observable<boolean>;
+
   constructor(
     public memberStore: MemberStore,
     private ar: ActivatedRoute,
     private store: StoreService,
-    private router: Router
+    private router: Router,
+    private billStore: BillStore
   ) {
+    this.memberBills$ = this.billStore.memberBills$;
     this.$selectedChamber = this.store.selectedChamber.entities$.pipe(
       distinctUntilChanged(),
       shareReplay(1)
@@ -69,5 +84,17 @@ export class MemberSearchPage {
         })
       )
       .subscribe();
+  }
+
+  scrollToVotes(member: Member) {
+    this.memberStore.fetchMemberVotes(member.id).subscribe();
+    const votesElement = document.getElementById("vote-card");
+    if (votesElement) {
+      votesElement.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  }
+
+  childInView(el) {
+    console.log(el);
   }
 }

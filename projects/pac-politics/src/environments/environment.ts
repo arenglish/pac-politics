@@ -2,6 +2,10 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { CongressionalNumber } from "@arenglish/pro-publica";
+import { EnvUrl } from "env-url/lib/env-url.model";
+
+const congressionalCycle = new CongressionalNumber(new Date().getFullYear());
 export const environment = {
   production: false,
   assets: {
@@ -14,7 +18,8 @@ export const environment = {
       house: "/assets/house-seal.svg",
       senate: "/assets/senate-seal.svg"
     }
-  }
+  },
+  congressionalCycle
 };
 
 /*
