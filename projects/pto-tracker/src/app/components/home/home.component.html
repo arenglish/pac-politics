@@ -1,0 +1,8 @@
+<div class="home-container">
+  <ng-container *ngFor="let year of (ptoInfo$ | async)?.years; trackBy: trackByIndex">
+    <div class="spacer"></div>
+    <div class="year-card-container">
+      <app-year-card [year]="year.number" [entries]="year.entries" [yearAllowance]="year.allowance" [yearCarryover]="year.remaining"></app-year-card>
+    </div>
+  </ng-container>
+</div>

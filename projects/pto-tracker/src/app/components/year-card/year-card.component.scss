@@ -1,0 +1,72 @@
+:host {
+  color: #05386b;
+}
+
+.pto-year-container {
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.pto-card-spacer {
+  height: 20px;
+}
+
+.pto-year-title {
+  font-size: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.add-button {
+  height: 40px;
+  min-height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+
+  -webkit-transition: font-size .1s;
+  -moz-transition: font-size .1s;
+  -o-transition: font-size .1s;
+  transition: font-size .1s;
+
+  &:hover {
+    font-size: 34px;
+  }
+}
+
+.delete-icon {
+  cursor: pointer;
+  fill: #05386b;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.delete-pto-button {
+  padding: 0 10px;
+}
+
+.pto-entry {
+  padding: 15px 0;
+}
+
+.divider {
+  border-top: 1px solid rgba(#05386b, .5);
+}
+
+.divider-light {
+  border-top: 1px solid rgba(#05386b, .3);
+}
+
+.pto-row {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-between;
+  margin-top: 10px;
+}

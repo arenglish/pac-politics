@@ -10,6 +10,11 @@
           "pac-politics.firebaseapp.com"
         ]
       }
+    },
+    "pto-tracker-f6b70": {
+      "hosting": {
+        "site": "pto-tracker-f6b70",
+      }
     }
   }
 }

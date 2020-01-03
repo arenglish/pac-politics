@@ -1,0 +1,29 @@
+.pto-entry-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  input {
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 5px;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 20px;
+    height: 40px;
+    width: 160px;
+    color: rgba(#05386b, .8);
+  }
+}
+
+.add-button {
+  background-color: #379683;
+  border-radius: 4px;
+  width: 80px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:focus {outline:0;}
+}

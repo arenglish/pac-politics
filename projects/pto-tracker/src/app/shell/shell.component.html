@@ -1,0 +1,5 @@
+<div class="shell-container">
+  <button class="large-button" *ngIf="(session.user$ | async)" (click)="addYearButtonClicked()">ADD YEAR</button>
+  <year-entry *ngIf="showAddYear" (addYear)="addYear($event)"></year-entry>
+  <router-outlet></router-outlet>
+</div>

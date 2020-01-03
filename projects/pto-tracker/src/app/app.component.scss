@@ -1,0 +1,29 @@
+.title {
+  height: 100px;
+  min-height: 100px;
+  font-size: 72px;
+  line-height: 1.5em;
+  letter-spacing: 2px;
+
+  -webkit-transition: font-size .3s;
+  -moz-transition: font-size .3s;
+  -o-transition: font-size .3s;
+  transition: font-size .3s;
+
+  &:hover {
+    font-size: 76px;
+  }
+}
+
+.shell-container {
+  width: 100%;
+}
+
+.page-container {
+  height: 100%;
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  align-items: center;
+  background-color: #5cdb95;
+}

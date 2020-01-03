@@ -480,6 +480,123 @@
           }
         }
       }
+    },
+    "pto-tracker": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/pto-tracker",
+      "sourceRoot": "projects/pto-tracker/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/pto-tracker",
+            "index": "projects/pto-tracker/src/index.html",
+            "main": "projects/pto-tracker/src/main.ts",
+            "polyfills": "projects/pto-tracker/src/polyfills.ts",
+            "tsConfig": "projects/pto-tracker/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/pto-tracker/src/favicon.ico",
+              "projects/pto-tracker/src/assets"
+            ],
+            "styles": [
+              "projects/pto-tracker/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "pto-tracker:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "pto-tracker:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "pto-tracker:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/pto-tracker/src/test.ts",
+            "polyfills": "projects/pto-tracker/src/polyfills.ts",
+            "tsConfig": "projects/pto-tracker/tsconfig.spec.json",
+            "karmaConfig": "projects/pto-tracker/karma.conf.js",
+            "assets": [
+              "projects/pto-tracker/src/favicon.ico",
+              "projects/pto-tracker/src/assets"
+            ],
+            "styles": [
+              "projects/pto-tracker/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/pto-tracker/tsconfig.app.json",
+              "projects/pto-tracker/tsconfig.spec.json",
+              "projects/pto-tracker/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/pto-tracker/e2e/protractor.conf.js",
+            "devServerTarget": "pto-tracker:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "pto-tracker:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "pac-politics"
