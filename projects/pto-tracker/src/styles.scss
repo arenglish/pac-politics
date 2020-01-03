@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Racing+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700&display=swap');
 
 html, body {
   height: 100%;
   width: 100vw;
   overflow: hidden;
-  font-family: 'Racing Sans One', cursive !important;
+  font-family: 'Lora', serif;
+  font-weight: 700;
   color: white;
   margin: 0;
   padding: 0;

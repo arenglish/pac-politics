@@ -24,6 +24,10 @@ export class YearCardComponent {
     this.session.deletePto(index, this.year);
   }
 
+  deleteYearButtonClicked() {
+    this.session.deleteYear(this.year);
+  }
+
   addPto(pto: Pto) {
     this.ptoEntry = false;
     this.session.addPto(pto, this.year);

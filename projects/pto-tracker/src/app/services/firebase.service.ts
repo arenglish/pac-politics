@@ -11,26 +11,24 @@ import { UserPto } from './session.service';
 })
 export class FirebaseService {
   user$: Observable<User>;
+  userPto$: Observable<UserPto>;
+
   constructor(private firestore: AngularFirestore, private fireAuth: AngularFireAuth) {
     this.user$ = this.fireAuth.user;
-  }
-
-  getUser() {
-    return this.user$;
+    this.userPto$ = this.user$.pipe(
+      switchMap(user => {
+        if (user) {
+          const userDoc = this.firestore.doc<UserPto>('users/' + user.uid);
+          return userDoc.valueChanges();
+        } else {
+          return null;
+        }
+      })
+    )
   }
 
   getUsersCollection() {
     return this.firestore.collection('users').snapshotChanges();
-  }
-
-  getUserDocument() {
-    return this.user$.pipe(
-      first(),
-      switchMap(user => {
-        const userDoc = this.firestore.doc('users/' + user.uid);
-        return userDoc.snapshotChanges();
-      })
-    )
   }
 
   updateUserDocument(userPto: UserPto) {

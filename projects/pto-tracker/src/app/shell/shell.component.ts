@@ -14,7 +14,7 @@ import { PtoYear, SessionService, UserPto } from '../services/session.service';
 })
 export class ShellComponent {
   showAddYear = false;
-  constructor(private session: SessionService) { }
+  constructor(public session: SessionService) { }
 
   addYearButtonClicked() {
     this.showAddYear = true;
@@ -22,6 +22,9 @@ export class ShellComponent {
 
   addYear(year: PtoYear) {
     this.showAddYear = false;
-    this.session.addYear(year);
+    this.session.addYear({
+      ...year,
+      entries: []
+    });
   }
 }
