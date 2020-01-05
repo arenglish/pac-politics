@@ -1,8 +1,23 @@
 <div class="home-container">
-  <ng-container *ngFor="let year of (ptoInfo$ | async)?.years as years; trackBy: trackByIndex; let index = index">
+  <ng-container
+    *ngFor="
+      let year of (ptoInfo$ | async)?.years as years;
+      trackBy: trackByIndex;
+      let index = index
+    "
+  >
     <div class="spacer"></div>
-    <div class="year-card-container">
-      <app-year-card [year]="year.number" [entries]="year.entries" [yearAllowance]="year.allowance" [yearCarryover]="index !== years.length - 1 ? years[index + 1].remaining : 0"></app-year-card>
-    </div>
+    <app-loading
+      [isLoading]="(loadingState$ | async) === LOADING_STATE.WAITING"
+    >
+      <div class="year-card-container">
+        <app-year-card
+          [year]="year.number"
+          [entries]="year.entries"
+          [yearAllowance]="year.allowance"
+          [yearCarryover]="year.carryover"
+        ></app-year-card>
+      </div>
+    </app-loading>
   </ng-container>
 </div>

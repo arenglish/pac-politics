@@ -1,42 +1,67 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { from, Observable } from 'rxjs';
-import { User } from 'firebase';
-import { first, switchMap } from 'rxjs/operators';
-import { UserPto } from './session.service';
+import { Injectable } from "@angular/core";
+import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFireAuth } from "@angular/fire/auth";
+import { from, Observable, of } from "rxjs";
+import { User } from "firebase";
+import { first, switchMap } from "rxjs/operators";
+import { UserPto } from "./session.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class FirebaseService {
   user$: Observable<User>;
   userPto$: Observable<UserPto>;
 
-  constructor(private firestore: AngularFirestore, private fireAuth: AngularFireAuth) {
+  constructor(
+    private firestore: AngularFirestore,
+    private fireAuth: AngularFireAuth
+  ) {
     this.user$ = this.fireAuth.user;
     this.userPto$ = this.user$.pipe(
       switchMap(user => {
         if (user) {
-          const userDoc = this.firestore.doc<UserPto>('users/' + user.uid);
+          const userDoc = this.firestore.doc<UserPto>("users/" + user.uid);
           return userDoc.valueChanges();
         } else {
-          return null;
+          return of(null);
         }
       })
-    )
+    );
   }
 
   getUsersCollection() {
-    return this.firestore.collection('users').snapshotChanges();
+    return this.firestore.collection("users").snapshotChanges();
   }
 
   updateUserDocument(userPto: UserPto) {
-    return this.user$.pipe(
-      first(),
-      switchMap(user => {
-        return from(this.firestore.collection('users').doc(user.uid).set(userPto, { merge: true }));
-      })
-    ).subscribe();
+    return this.user$
+      .pipe(
+        first(),
+        switchMap(user => {
+          return from(
+            this.firestore
+              .collection("users")
+              .doc(user.uid)
+              .set(userPto, { merge: true })
+          );
+        })
+      )
+      .subscribe();
+  }
+
+  createUserPtoDocument(uid: string) {
+    console.log(uid);
+    return from(
+      this.firestore
+        .collection("users")
+        .doc(uid)
+        .set(
+          {
+            years: []
+          },
+          { merge: true }
+        )
+    );
   }
 }

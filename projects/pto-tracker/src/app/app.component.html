@@ -1,9 +1,18 @@
 <div class="page-container">
-  <div class="title">MY PTO</div>
-  <button class="large-button" *ngIf="(user$ | async) === null" (click)="loginButtonClicked()">LOGIN</button>
-  <button class="large-button" *ngIf="(user$ | async)" (click)="logoutButtonClicked()">LOGOUT</button>
-
-  <div class="shell-container">
-    <router-outlet></router-outlet>
+  <div class="title-container">
+    <div
+      class="title"
+      [ngClass]="(loggedIn$ | async) ? 'logout' : 'login'"
+      (click)="toggleLoggedInStatus()"
+    ></div>
+  </div>
+  <div class="app-content">
+    <app-loading
+      [isLoading]="(loadingState$ | async) === LOADING_STATE.WAITING"
+    >
+      <div class="shell-container">
+        <router-outlet></router-outlet>
+      </div>
+    </app-loading>
   </div>
 </div>

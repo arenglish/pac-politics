@@ -1,13 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700&display=swap');
+//@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Baloo+Bhaijaan&display=swap");
+@import "variables";
 
-html, body {
+html,
+body {
+  // font-family: 'Lora', serif;
+  font-family: "Baloo Bhaijaan", cursive;
   height: 100%;
   width: 100vw;
   overflow: hidden;
-  font-family: 'Lora', serif;
   font-weight: 700;
-  color: white;
+  color: $cream;
   margin: 0;
   padding: 0;
 }
@@ -17,14 +21,18 @@ html, body {
 }
 
 .large-button {
-  background-color: #379683;
+  background-color: $primary-green;
+  outline: none;
   border-radius: 4px;
-  width: 80px;
-  color: white;
+  min-width: 80px;
+  color: #5cdb95;
   border-color: black;
   font-family: inherit;
-  font-size: 14px;
+  font-weight: 800;
+  font-size: 20px;
   cursor: pointer;
 }
 
-.add-year-button:focus {outline:0;}
+.add-year-button:focus {
+  outline: 0;
+}

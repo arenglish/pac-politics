@@ -505,9 +505,10 @@
               "projects/pto-tracker/src/favicon.ico",
               "projects/pto-tracker/src/assets"
             ],
-            "styles": [
-              "projects/pto-tracker/src/styles.scss"
-            ],
+            "styles": ["projects/pto-tracker/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["projects/pto-tracker/src/styles"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -517,7 +518,7 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
-              "namedChunks": false,
+              "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -565,9 +566,7 @@
               "projects/pto-tracker/src/favicon.ico",
               "projects/pto-tracker/src/assets"
             ],
-            "styles": [
-              "projects/pto-tracker/src/styles.scss"
-            ],
+            "styles": ["projects/pto-tracker/src/styles.scss"],
             "scripts": []
           }
         },
@@ -579,9 +578,7 @@
               "projects/pto-tracker/tsconfig.spec.json",
               "projects/pto-tracker/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {

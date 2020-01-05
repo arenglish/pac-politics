@@ -1,17 +1,45 @@
+@import "variables";
+
+.title-container {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+.app-content {
+  flex: 0 1 auto;
+}
+
 .title {
-  height: 100px;
-  min-height: 100px;
   font-size: 72px;
-  line-height: 1.5em;
+  line-height: 1em;
   letter-spacing: 2px;
+  cursor: pointer;
+  display: flex;
 
-  -webkit-transition: font-size .3s;
-  -moz-transition: font-size .3s;
-  -o-transition: font-size .3s;
-  transition: font-size .3s;
+  &:after {
+    content: "MY PTO";
+  }
+}
 
-  &:hover {
-    font-size: 76px;
+.title.login:hover::after {
+  content: "LOGIN";
+  animation: spin 0.2s ease-in-out forwards;
+}
+
+.title.logout:hover::after {
+  content: "LOGOUT";
+  animation: spin 0.2s ease-in-out forwards;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -24,8 +52,10 @@
   display: flex;
   overflow: auto;
   flex-direction: column;
-  align-items: center;
-  background-color: #5cdb95;
+  justify-content: center;
+  align-content: center;
+  background-color: $primary-green;
+  //background-image: linear-gradient(45deg, $primary-green 0%, $dark-blue 200%);
 }
 
 .large-button {

@@ -1,20 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { PtoYear, SessionService, UserPto } from '../services/session.service';
+import { Component } from "@angular/core";
+import { PtoYear, SessionService } from "../services/session.service";
 
 @Component({
-  selector: 'app-shell',
-  templateUrl: './shell.component.html',
-  styles: [`
-    .shell-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-  `]
+  selector: "app-shell",
+  templateUrl: "./shell.component.html",
+  styleUrls: ["./shell.component.scss"]
 })
 export class ShellComponent {
   showAddYear = false;
-  constructor(public session: SessionService) { }
+  constructor(public session: SessionService) {}
 
   addYearButtonClicked() {
     this.showAddYear = true;

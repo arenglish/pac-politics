@@ -1,12 +1,17 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { FirebaseService } from './firebase.service';
-import { filter, first, map, tap } from 'rxjs/operators';
-import { auth, User } from 'firebase';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
-import { getDaysUsedFromYear } from '../utils/year.helper';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable, of } from "rxjs";
+import { FirebaseService } from "./firebase.service";
+import { first, map, switchMap, tap, withLatestFrom } from "rxjs/operators";
+import { AngularFireAuth } from "@angular/fire/auth";
+import { Router } from "@angular/router";
+import { getDaysUsedFromYear } from "../utils/year.helper";
+import { User, auth } from "firebase/app";
 
+export enum LOADING_STATE {
+  EMPTY,
+  WAITING,
+  LOADED
+}
 export interface Pto {
   id: string;
   title: string;
@@ -18,8 +23,9 @@ export interface PtoYear {
   number: string;
   entries: Pto[];
   allowance: number;
-  used: number;
-  remaining: number;
+  used?: number;
+  remaining?: number;
+  carryover?: number;
 }
 
 export interface UserPto {
@@ -27,36 +33,53 @@ export interface UserPto {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class SessionService {
   userPto$: Observable<UserPto>;
   user$: Observable<User>;
+  loadingState$ = new BehaviorSubject<number>(LOADING_STATE.EMPTY);
 
-  constructor(private firebase: FirebaseService, private fireAuth: AngularFireAuth, private router: Router) {
+  constructor(
+    private firebase: FirebaseService,
+    private fireAuth: AngularFireAuth,
+    private router: Router
+  ) {
     this.user$ = this.fireAuth.user;
     this.userPto$ = this.firebase.userPto$.pipe(
-      filter(res => !!res),
       map(userPto => {
-        const years = userPto.years.map(year => {
-          if (year) {
-            const used = getDaysUsedFromYear(year);
-            return {
-              ...year,
-              used,
-              remaining: year.allowance - used
-            } as PtoYear
-          } else {
-            return year;
-          }
-        })
+        console.log(userPto);
+        this.loadingState$.next(LOADING_STATE.LOADED);
+        if (!userPto) {
+          return userPto;
+        }
+        const years = userPto.years
+          .reverse()
+          .reduce((all, year, index) => {
+            let updatedYear = year;
+            if (year) {
+              const used = getDaysUsedFromYear(year);
+              const carryover =
+                index !== 0 ? userPto.years[index - 1].remaining : 0;
+              updatedYear = {
+                ...year,
+                used,
+                remaining: year.allowance + carryover - used,
+                carryover
+              } as PtoYear;
+            }
+
+            all.push(updatedYear);
+            return all;
+          }, [])
+          .reverse();
 
         return {
           ...userPto,
           years
-        }
+        };
       })
-    )
+    );
   }
 
   login() {
@@ -64,6 +87,10 @@ export class SessionService {
   }
   logout() {
     this.fireAuth.auth.signOut();
+  }
+
+  setLoadingState(state: number) {
+    this.loadingState$.next(state);
   }
 
   addPto(pto: Pto, yearNumber: string) {
@@ -75,17 +102,17 @@ export class SessionService {
           return {
             ...year,
             entries
-          }
+          };
         } else {
           return year;
         }
-      })
+      });
 
       return {
         ...user,
         years
-      }
-    })
+      };
+    });
   }
 
   deletePto(index: number, yearNumber) {
@@ -97,17 +124,17 @@ export class SessionService {
           return {
             ...year,
             entries
-          }
+          };
         } else {
           return year;
         }
-      })
+      });
 
       return {
         ...user,
         years
-      }
-    })
+      };
+    });
   }
 
   deleteYear(yearNumber) {
@@ -115,27 +142,44 @@ export class SessionService {
       return {
         ...user,
         years: user.years.filter(year => year.number !== yearNumber)
-      }
-    })
+      };
+    });
   }
 
   addYear(year: PtoYear): void {
     this.transformUserPto(user => {
       return {
         ...user,
-        years: [ year, ...user.years ]
-      }
-    })
+        years: [year, ...user.years]
+      };
+    });
   }
 
   private transformUserPto(transform: (userPto: UserPto) => UserPto) {
-    this.userPto$.pipe(
+    this.initUserPtoIfNone()
+      .pipe(
+        switchMap(() => this.userPto$),
+        first(),
+        tap(userPto => {
+          let user = new Object(userPto) as UserPto;
+          user = transform(user);
+          this.firebase.updateUserDocument(user);
+        })
+      )
+      .subscribe();
+  }
+
+  private initUserPtoIfNone() {
+    return this.userPto$.pipe(
       first(),
-      tap(userPto => {
-        let user = new Object(userPto) as UserPto;
-        user = transform(user);
-        this.firebase.updateUserDocument(user);
+      withLatestFrom(this.user$),
+      switchMap(([userPto, user]) => {
+        if (!userPto) {
+          return this.firebase.createUserPtoDocument(user.uid);
+        } else {
+          return of(true);
+        }
       })
-    ).subscribe()
+    );
   }
 }

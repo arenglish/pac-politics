@@ -1,0 +1,14 @@
+@import "variables";
+
+.add-year-icon-container {
+  background-color: $dark-blue;
+  border-radius: 10px;
+  display: flex;
+  color: $cream;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  font-size: 30px;
+}

@@ -1,11 +1,54 @@
+@import "variables";
+
 :host {
-  color: #05386b;
+  color: $dark-blue;
 }
 
 .pto-year-container {
   border-radius: 10px;
-  background-color: white;
+  background-color: $cream;
   padding: 10px;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-items: center;
+}
+
+.add-pto-button ::ng-deep .add-year-icon-container {
+  transform: scale(0.5);
+  &:hover {
+    animation: scale-75 0.1s ease-in-out forwards;
+  }
+}
+
+.delete-icon {
+  cursor: pointer;
+  fill: #05386b;
+  align-self: center;
+
+  &:hover {
+    animation: scale-1-2 0.1s ease-in-out forwards;
+  }
+}
+
+.delete-button {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+@keyframes scale-1-2 {
+  to {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes scale-75 {
+  to {
+    transform: scale(0.75);
+  }
 }
 
 .pto-card-spacer {
@@ -20,46 +63,16 @@
   align-content: center;
 }
 
-.add-button {
-  height: 40px;
-  min-height: 40px;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-
-  -webkit-transition: font-size .1s;
-  -moz-transition: font-size .1s;
-  -o-transition: font-size .1s;
-  transition: font-size .1s;
-
-  &:hover {
-    font-size: 34px;
-  }
-}
-
-.delete-icon {
-  cursor: pointer;
-  fill: #05386b;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-}
-
-.delete-button {
-  padding: 0 10px;
-}
-
 .pto-entry {
   padding: 15px 0;
 }
 
 .divider {
-  border-top: 1px solid rgba(#05386b, .5);
+  border-top: 1px solid rgba(#05386b, 0.5);
 }
 
 .divider-light {
-  border-top: 1px solid rgba(#05386b, .3);
+  border-top: 1px solid rgba(#05386b, 0.3);
 }
 
 .pto-row {
