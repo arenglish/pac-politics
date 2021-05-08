@@ -53,7 +53,7 @@
     "core-js": "^2.6.10",
     "firebase": "^5.11.1",
     "firebaseui": "^4.4.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "logrocket": "^0.6.21",
     "ngx-markdown": "^8.2.1",
     "ngx-take-until-destroy": "^5.4.0",
